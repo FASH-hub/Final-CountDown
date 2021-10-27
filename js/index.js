@@ -34,7 +34,7 @@ createBtn = () => {
 }
 
 /**
- * Displays the picked event in the form.
+ * Displays the chosen event in the form.
  * It also stores the picked event in local storage
  */
 eventChoice = () => {
@@ -51,42 +51,20 @@ eventChoice = () => {
         let p = document.createElement('p')
         p.innerText = event.name + ' ' + ' will be on ' + event.date
         main.appendChild(p)
-        storeEvent(event)
 
+        let storedEvents = [];
 
+        if (!window.localStorage.getItem('events')) {
+            storedEvents.push(event);
+            window.localStorage.setItem('events', JSON.stringify(storedEvents))
+        } else {
+            storedEvents.push(event);
+            window.localStorage.setItem('events', JSON.stringify(storedEvents))
 
-        // let stored = JSON.parse(localStorage.getItem('event'))
-        // if (stored) {
-        //     stored.push(event)
-        //     localStorage.setItem('event', JSON.stringify(stored))
-        // } else {
-        //     stored = []
-        //     stored.push(event)
-        //     localStorage.setItem('event', JSON.stringify(stored))
-        // }
+        }
 
     })
 }
-
-
-/**
- * Store the picked event in local storage
- */
-let pickedEvent = {};
-
-checkStore = () => {
-    if (!window.localStorage.getItem('event')) {
-        storeEvent(pickedEvent);
-    } else {
-        storeEvent(pickedEvent);
-    }
-}
-storeEvent = (pickedEvent) => {
-    let container = [];
-    container.push(pickedEvent)
-    window.localStorage.setItem('event', JSON.stringify(container));
-}
-
 
 createEventName();
 createEventDate();
