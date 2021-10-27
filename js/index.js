@@ -51,7 +51,19 @@ eventChoice = () => {
         let p = document.createElement('p')
         p.innerText = event.name + ' ' + ' will be on ' + event.date
         main.appendChild(p)
-        storeEvent(JSON.stringify(event))
+        storeEvent(event)
+
+
+
+        // let stored = JSON.parse(localStorage.getItem('event'))
+        // if (stored) {
+        //     stored.push(event)
+        //     localStorage.setItem('event', JSON.stringify(stored))
+        // } else {
+        //     stored = []
+        //     stored.push(event)
+        //     localStorage.setItem('event', JSON.stringify(stored))
+        // }
 
     })
 }
@@ -61,14 +73,20 @@ eventChoice = () => {
  * Store the picked event in local storage
  */
 let pickedEvent = {};
-storeEvent = (pickedEvent) => {
-    window.localStorage.setItem('event', pickedEvent);
-}
+
 checkStore = () => {
     if (!window.localStorage.getItem('event')) {
-        storeEvent();
+        storeEvent(pickedEvent);
+    } else {
+        storeEvent(pickedEvent);
     }
 }
+storeEvent = (pickedEvent) => {
+    let container = [];
+    container.push(pickedEvent)
+    window.localStorage.setItem('event', JSON.stringify(container));
+}
+
 
 createEventName();
 createEventDate();
