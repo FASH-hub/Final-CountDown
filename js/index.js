@@ -31,7 +31,35 @@ createBtn = () => {
     let button = document.createElement('button')
     button.innerHTML = 'Display'
     main.appendChild(button)
+
 }
+
+
+// let storedEvents = JSON.parse(localStorage.getItem('events'))
+// if (!storedEvents) {
+//     storedEvents = [];
+// } else {
+//     let eventName = document.querySelector('#eventName')
+//     let eventDate = document.querySelector('#date')
+//     let button = document.querySelector('button')
+
+
+//     button.addEventListener('click', function() {
+//         let event = {
+//             name: eventName.value,
+//             date: eventDate.value
+//         }
+//         let p = document.createElement('p')
+//         p.innerText = event.name + ' ' + ' will be on ' + event.date
+//         main.appendChild(p)
+
+//         storedEvents.push(event);
+//         localStorage.setItem('events', JSON.stringify(storedEvents))
+//         console.log(storedEvents)
+
+
+//     })
+// }
 
 /**
  * Displays the chosen event in the form.
@@ -39,31 +67,30 @@ createBtn = () => {
  */
 eventChoice = () => {
 
-    let eventName = document.querySelector('#eventName')
-    let eventDate = document.querySelector('#date')
-    let button = document.querySelector('button')
+    let storedEvents = JSON.parse(localStorage.getItem('events'))
+    if (!storedEvents) {
+        storedEvents = [];
+    } else {
+        let eventName = document.querySelector('#eventName')
+        let eventDate = document.querySelector('#date')
+        let button = document.querySelector('button')
 
-    button.addEventListener('click', function() {
-        let event = {
-            name: eventName.value,
-            date: eventDate.value
-        }
-        let p = document.createElement('p')
-        p.innerText = event.name + ' ' + ' will be on ' + event.date
-        main.appendChild(p)
+        button.addEventListener('click', function() {
+            let event = {
+                name: eventName.value,
+                date: eventDate.value
+            }
+            let p = document.createElement('p')
+            p.innerText = event.name + ' ' + ' will be on ' + event.date
+            main.appendChild(p)
 
-        let storedEvents = [];
-
-        if (!window.localStorage.getItem('events')) {
             storedEvents.push(event);
-            window.localStorage.setItem('events', JSON.stringify(storedEvents))
-        } else {
-            storedEvents.push(event);
-            window.localStorage.setItem('events', JSON.stringify(storedEvents))
+            localStorage.setItem('events', JSON.stringify(storedEvents))
+            console.log(storedEvents)
 
-        }
 
-    })
+        })
+    }
 }
 
 createEventName();
