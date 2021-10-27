@@ -38,10 +38,10 @@ createBtn = () => {
 eventChoice = () => {
 
     let storedEvents = JSON.parse(localStorage.getItem('events'))
-
     if (!storedEvents) {
         storedEvents = [];
     } else {
+
         let eventName = document.querySelector('#eventName')
         let eventDate = document.querySelector('#date')
         let button = document.querySelector('button')
