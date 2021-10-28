@@ -1,7 +1,7 @@
 /**
  * Gives the remaining time for the received event to happen from the current time.
  */
-upcomingTime = (date, eventName) => {
+export let upcomingTime = (date, eventName) => {
 
     let timestamp = new Date(date).getTime() - new Date().getTime()
 
@@ -48,4 +48,3 @@ upcomingTime = (date, eventName) => {
     }
     return display + ' until ' + eventName;
 }
-upcomingTime()

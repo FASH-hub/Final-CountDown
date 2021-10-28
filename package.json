@@ -1,0 +1,24 @@
+{
+    "name": "finalcountdown",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "source": "src/index.html",
+    "scripts": {
+        "start": "parcel",
+        "build": "parcel build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FASH-hub/Final-CountDown.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/FASH-hub/Final-CountDown/issues"
+    },
+    "homepage": "https://github.com/FASH-hub/Final-CountDown#readme",
+    "devDependencies": {
+        "parcel": "^2.0.0"
+    }
+}

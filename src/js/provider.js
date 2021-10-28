@@ -33,6 +33,3 @@ export let createBtn = () => {
     main.appendChild(button)
 
 }
-createEventName();
-createEventDate();
-createBtn();
